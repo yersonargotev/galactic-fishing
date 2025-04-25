@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-	--background: #ffffff;
-	--foreground: #171717;
+	--background: #0f172a;
+	--foreground: #e2e8f0;
 }
 
 @theme inline {
@@ -12,11 +12,55 @@
 	--font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
+/* Animation keyframes */
+@keyframes twinkle {
+	0% {
+		opacity: 0.5;
+		transform: translateZ(0);
 	}
+	50% {
+		opacity: 1;
+		transform: translateZ(0);
+	}
+	100% {
+		opacity: 0.5;
+		transform: translateZ(0);
+	}
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(100, 116, 139, 0.4);
+	}
+	70% {
+		box-shadow: 0 0 0 10px rgba(100, 116, 139, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(100, 116, 139, 0);
+	}
+}
+
+/* Subtle dot pattern background */
+.stars-bg {
+	background-image: radial-gradient(
+			1px 1px at 20px 30px,
+			#94a3b8,
+			rgba(0, 0, 0, 0)
+		), radial-gradient(1px 1px at 40px 70px, #cbd5e1, rgba(0, 0, 0, 0)),
+		radial-gradient(1px 1px at 90px 40px, #64748b, rgba(0, 0, 0, 0));
+	background-size: 100px 100px;
 }
 
 body {
